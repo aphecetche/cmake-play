@@ -1,11 +1,14 @@
-add_library(C SHARED src/C.cxx src/C2.cxx ${CMAKE_CURRENT_BINARY_DIR}/G__C.cxx)
+add_library(C SHARED src/C.cxx src/C2.cxx)
 
-target_include_directories(C PUBLIC include PRIVATE src)
+target_include_directories(C PUBLIC include)
 
-include(O2GenerateRootDictionary)
-o2_generate_root_dictionary(C
-        OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/G__C.cxx
+include(O2AddRootDictionary)
+o2_add_root_dictionary(C
         HEADERS include/C.h src/C2.h 
         LINKDEF src/CLinkDef.h)
 
 target_link_libraries(C PUBLIC ROOT::Core B)
+
+include(O2DumpTargetProperties)
+o2_dump_target_properties(C)
+
