@@ -4,13 +4,10 @@ project(play)
 
 include(GNUInstallDirs)
 
-find_package(Geant4 REQUIRED)
-find_package(ROOT 6.16 REQUIRED)
-
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
+set(BUILD_SHARED_LIBS ON)
 
-add_subdirectory(libA)
-add_subdirectory(libB)
-add_subdirectory(libC)
+add_subdirectory(fwk)
+add_subdirectory(det)
+add_subdirectory(fwk/wflow)
 
