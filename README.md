@@ -1,2 +1,3 @@
-Fake project to play with CMake, and in particular how to properly configure
-external targets used in O2, like Geant4, FairRoot, etc...
+Fake project to play with CMake.
+
+Investigate find_package(boost ...) options, depending on the presence of system boost (e.g. from brew)
