@@ -10,15 +10,12 @@
 
 # Simply provide a namespaced alias for the existing target
 
-set(CMAKE_FIND_PACKAGE_PREFER_CONFIG_ORIG ${CMAKE_FIND_PACKAGE_PREFER_CONFIG})
-set(CMAKE_FIND_PACKAGE_PREFER_CONFIG ON)
 find_package(Arrow CONFIG QUIET)
 if(NOT Arrow_FOUND)
         find_package(arrow CONFIG QUIET)
-else()
-        find_package(Gandiva CONFIG PATHS ${Arrow_DIR} NO_DEFAULT_PATH QUIET)
+        set(Arrow_DIR ${arrow_DIR})
 endif()
-set(CMAKE_FIND_PACKAGE_PREFER_CONFIG ${CMAKE_FIND_PACKAGE_PREFER_CONFIG_ORIG})
+find_package(Gandiva CONFIG PATHS ${Arrow_DIR} QUIET)
 
 if(TARGET arrow_shared)
         # Promote the imported target to global visibility (so we can alias it)
@@ -35,7 +32,7 @@ if(TARGET gandiva_shared)
 endif()
 
 include(FindPackageHandleStandardArgs)
-find_package_handle_standard_args(arrow REQUIRED_VARS Arrow_DIR arrow_TARGET gandiva_TARGET)
+find_package_handle_standard_args(O2arrow REQUIRED_VARS arrow_TARGET gandiva_TARGET)
 
 unset(arrow_TARGET)
 unset(gandiva_TARGET)
