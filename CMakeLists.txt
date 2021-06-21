@@ -1,16 +1,8 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.15)
 
-project(play)
+project(play VERSION 1.2.3)
 
-include(GNUInstallDirs)
+add_subdirectory(version)
+add_subdirectory(src)
 
-find_package(Geant4 REQUIRED)
-find_package(ROOT 6.16 REQUIRED)
-
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
-
-add_subdirectory(libA)
-add_subdirectory(libB)
-add_subdirectory(libC)
 

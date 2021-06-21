@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/laurent/github.com/aphecetche/cmake-play/src/play.cxx
+O2Version.h
+/Users/laurent/github.com/aphecetche/cmake-play/src/O2Version.h
+iostream
+-
+
+version/O2Version.h
+
