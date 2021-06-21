@@ -1,2 +1,1 @@
-Fake project to play with CMake
-
+Playing with counterintuitive handling of `CMAKE_<LANG>_FLAGS`

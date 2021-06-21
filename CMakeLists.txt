@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(play VERSION 1.2.3)
+project(play VERSION 1.2.3 LANGUAGES CXX)
 
-add_subdirectory(version)
-add_subdirectory(src)
+set(CMAKE_CXX_FLAGS "-O3")
 
+add_executable(insane)
+target_sources(insane PRIVATE insane.cxx)
 
+set(CMAKE_CXX_FLAGS "-g -O1 -fsanitize=address")
