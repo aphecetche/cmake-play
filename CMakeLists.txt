@@ -19,14 +19,20 @@ add_library(B SHARED)
 target_sources(B PRIVATE B.cxx)
 target_link_libraries(B PRIVATE A)
 
-add_library(Aimpl SHARED)
-target_sources(Aimpl PRIVATE Aimpl.cxx)
+add_library(Aimpl1 SHARED)
+target_sources(Aimpl1 PUBLIC Aimpl1.cxx)
+
+add_library(Aimpl2 SHARED)
+target_sources(Aimpl2 PUBLIC Aimpl2.cxx)
 
 add_executable(failing failing.cxx)
 target_link_libraries(failing PUBLIC B Boost::headers)
 
 add_executable(passing passing.cxx)
-target_link_libraries(passing PUBLIC B Aimpl Boost::headers)
+target_link_libraries(passing PUBLIC B Aimpl1 Boost::headers)
+
+# add_executable(toto passing.cxx)
+# target_link_libraries(toto PUBLIC B Aimpl1 Aimpl2 Boost::headers)
 
 add_test(failing failing)
 add_test(passing passing)
