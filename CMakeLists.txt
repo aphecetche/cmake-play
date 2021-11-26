@@ -13,8 +13,9 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 add_library(A SHARED)
 target_sources(A PUBLIC A.cxx)
-#target_link_options(A PUBLIC -Wl,-U,_printA,-U,_printB -undefined dynamic_lookup)
-target_link_options(A PUBLIC "LINKER:-U,printA,-U,printB,-undefined,dynamic_lookup")
+if(APPLE)
+  target_link_options(A PUBLIC "LINKER:-U,printA,-U,printB,-undefined,dynamic_lookup")
+endif()
 
 add_library(B SHARED)
 target_sources(B PUBLIC B.cxx)
