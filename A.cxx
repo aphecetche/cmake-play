@@ -6,10 +6,10 @@ extern void printA(int) __attribute__((weak));
 extern void printB(int) __attribute__((weak));
 
 void A::print() const {
-  if (printA == NULL) {
+  if (&printA == NULL) {
     throw std::runtime_error("not linked with an actual A impl");
   } else {
-    if (printB == NULL) {
+    if (&printB == NULL) {
       throw std::runtime_error("not linked with an actual B impl");
     } else {
       printA(a);
