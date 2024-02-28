@@ -1,2 +1,1 @@
-Fake project to play with CMake, and in particular how to properly configure
-external targets used in O2, like Geant4, FairRoot, etc...
+Toy project to investigate how Root schema evolution handled namespace change(s).
